@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coder520.test.dao.TbNameMapper" >
+  <resultMap id="BaseResultMap" type="com.coder520.test.entity.TbName" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="XJH" property="xjh" jdbcType="VARCHAR" />
+    <result column="XM" property="xm" jdbcType="VARCHAR" />
+    <result column="XN" property="xn" jdbcType="VARCHAR" />
+    <result column="XQ" property="xq" jdbcType="VARCHAR" />
+    <result column="XKID" property="xkid" jdbcType="VARCHAR" />
+    <result column="PYYF" property="pyyf" jdbcType="VARCHAR" />
+    <result column="BXID1" property="bxid1" jdbcType="VARCHAR" />
+    <result column="BXLEVEL1" property="bxlevel1" jdbcType="DECIMAL" />
+    <result column="BXID2" property="bxid2" jdbcType="VARCHAR" />
+    <result column="BXLEVEL2" property="bxlevel2" jdbcType="DECIMAL" />
+    <result column="BXID3" property="bxid3" jdbcType="VARCHAR" />
+    <result column="BXLEVEL3" property="bxlevel3" jdbcType="DECIMAL" />
+    <result column="BXID4" property="bxid4" jdbcType="VARCHAR" />
+    <result column="BXLEVEL4" property="bxlevel4" jdbcType="DECIMAL" />
+    <result column="BXID5" property="bxid5" jdbcType="VARCHAR" />
+    <result column="BXLEVEL5" property="bxlevel5" jdbcType="DECIMAL" />
+    <result column="BXID6" property="bxid6" jdbcType="VARCHAR" />
+    <result column="BXLEVEL6" property="bxlevel6" jdbcType="DECIMAL" />
+    <result column="BXID7" property="bxid7" jdbcType="VARCHAR" />
+    <result column="BXLEVEL7" property="bxlevel7" jdbcType="DECIMAL" />
+    <result column="BXID8" property="bxid8" jdbcType="VARCHAR" />
+    <result column="BXLEVEL8" property="bxlevel8" jdbcType="DECIMAL" />
+    <result column="JSPY" property="jspy" jdbcType="VARCHAR" />
+    <result column="JSXM" property="jsxm" jdbcType="VARCHAR" />
+    <result column="TBLY" property="tbly" jdbcType="DECIMAL" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="CREATORNAME" property="creatorname" jdbcType="VARCHAR" />
+    <result column="CREATORID" property="creatorid" jdbcType="VARCHAR" />
+    <result column="UPLOADTEACHERID" property="uploadteacherid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, XJH, XM, XN, XQ, XKID, PYYF, BXID1, BXLEVEL1, BXID2, BXLEVEL2, BXID3, BXLEVEL3, 
+    BXID4, BXLEVEL4, BXID5, BXLEVEL5, BXID6, BXLEVEL6, BXID7, BXLEVEL7, BXID8, BXLEVEL8, 
+    JSPY, JSXM, TBLY, CREATETIME, UPDATETIME, CREATORNAME, CREATORID, UPLOADTEACHERID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from XXZX_XS_RCBX
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from XXZX_XS_RCBX
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.coder520.test.entity.TbName" >
+    insert into XXZX_XS_RCBX (ID, XJH, XM, 
+      XN, XQ, XKID, PYYF, 
+      BXID1, BXLEVEL1, BXID2, 
+      BXLEVEL2, BXID3, BXLEVEL3, 
+      BXID4, BXLEVEL4, BXID5, 
+      BXLEVEL5, BXID6, BXLEVEL6, 
+      BXID7, BXLEVEL7, BXID8, 
+      BXLEVEL8, JSPY, JSXM, 
+      TBLY, CREATETIME, UPDATETIME, 
+      CREATORNAME, CREATORID, UPLOADTEACHERID
+      )
+    values (#{id,jdbcType=VARCHAR}, #{xjh,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
+      #{xn,jdbcType=VARCHAR}, #{xq,jdbcType=VARCHAR}, #{xkid,jdbcType=VARCHAR}, #{pyyf,jdbcType=VARCHAR}, 
+      #{bxid1,jdbcType=VARCHAR}, #{bxlevel1,jdbcType=DECIMAL}, #{bxid2,jdbcType=VARCHAR}, 
+      #{bxlevel2,jdbcType=DECIMAL}, #{bxid3,jdbcType=VARCHAR}, #{bxlevel3,jdbcType=DECIMAL}, 
+      #{bxid4,jdbcType=VARCHAR}, #{bxlevel4,jdbcType=DECIMAL}, #{bxid5,jdbcType=VARCHAR}, 
+      #{bxlevel5,jdbcType=DECIMAL}, #{bxid6,jdbcType=VARCHAR}, #{bxlevel6,jdbcType=DECIMAL}, 
+      #{bxid7,jdbcType=VARCHAR}, #{bxlevel7,jdbcType=DECIMAL}, #{bxid8,jdbcType=VARCHAR}, 
+      #{bxlevel8,jdbcType=DECIMAL}, #{jspy,jdbcType=VARCHAR}, #{jsxm,jdbcType=VARCHAR}, 
+      #{tbly,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{creatorname,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR}, #{uploadteacherid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.coder520.test.entity.TbName" >
+    insert into XXZX_XS_RCBX
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="xjh != null" >
+        XJH,
+      </if>
+      <if test="xm != null" >
+        XM,
+      </if>
+      <if test="xn != null" >
+        XN,
+      </if>
+      <if test="xq != null" >
+        XQ,
+      </if>
+      <if test="xkid != null" >
+        XKID,
+      </if>
+      <if test="pyyf != null" >
+        PYYF,
+      </if>
+      <if test="bxid1 != null" >
+        BXID1,
+      </if>
+      <if test="bxlevel1 != null" >
+        BXLEVEL1,
+      </if>
+      <if test="bxid2 != null" >
+        BXID2,
+      </if>
+      <if test="bxlevel2 != null" >
+        BXLEVEL2,
+      </if>
+      <if test="bxid3 != null" >
+        BXID3,
+      </if>
+      <if test="bxlevel3 != null" >
+        BXLEVEL3,
+      </if>
+      <if test="bxid4 != null" >
+        BXID4,
+      </if>
+      <if test="bxlevel4 != null" >
+        BXLEVEL4,
+      </if>
+      <if test="bxid5 != null" >
+        BXID5,
+      </if>
+      <if test="bxlevel5 != null" >
+        BXLEVEL5,
+      </if>
+      <if test="bxid6 != null" >
+        BXID6,
+      </if>
+      <if test="bxlevel6 != null" >
+        BXLEVEL6,
+      </if>
+      <if test="bxid7 != null" >
+        BXID7,
+      </if>
+      <if test="bxlevel7 != null" >
+        BXLEVEL7,
+      </if>
+      <if test="bxid8 != null" >
+        BXID8,
+      </if>
+      <if test="bxlevel8 != null" >
+        BXLEVEL8,
+      </if>
+      <if test="jspy != null" >
+        JSPY,
+      </if>
+      <if test="jsxm != null" >
+        JSXM,
+      </if>
+      <if test="tbly != null" >
+        TBLY,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="creatorname != null" >
+        CREATORNAME,
+      </if>
+      <if test="creatorid != null" >
+        CREATORID,
+      </if>
+      <if test="uploadteacherid != null" >
+        UPLOADTEACHERID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="xjh != null" >
+        #{xjh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xn != null" >
+        #{xn,jdbcType=VARCHAR},
+      </if>
+      <if test="xq != null" >
+        #{xq,jdbcType=VARCHAR},
+      </if>
+      <if test="xkid != null" >
+        #{xkid,jdbcType=VARCHAR},
+      </if>
+      <if test="pyyf != null" >
+        #{pyyf,jdbcType=VARCHAR},
+      </if>
+      <if test="bxid1 != null" >
+        #{bxid1,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel1 != null" >
+        #{bxlevel1,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid2 != null" >
+        #{bxid2,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel2 != null" >
+        #{bxlevel2,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid3 != null" >
+        #{bxid3,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel3 != null" >
+        #{bxlevel3,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid4 != null" >
+        #{bxid4,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel4 != null" >
+        #{bxlevel4,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid5 != null" >
+        #{bxid5,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel5 != null" >
+        #{bxlevel5,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid6 != null" >
+        #{bxid6,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel6 != null" >
+        #{bxlevel6,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid7 != null" >
+        #{bxid7,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel7 != null" >
+        #{bxlevel7,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid8 != null" >
+        #{bxid8,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel8 != null" >
+        #{bxlevel8,jdbcType=DECIMAL},
+      </if>
+      <if test="jspy != null" >
+        #{jspy,jdbcType=VARCHAR},
+      </if>
+      <if test="jsxm != null" >
+        #{jsxm,jdbcType=VARCHAR},
+      </if>
+      <if test="tbly != null" >
+        #{tbly,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorname != null" >
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null" >
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadteacherid != null" >
+        #{uploadteacherid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.coder520.test.entity.TbName" >
+    update XXZX_XS_RCBX
+    <set >
+      <if test="xjh != null" >
+        XJH = #{xjh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        XM = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xn != null" >
+        XN = #{xn,jdbcType=VARCHAR},
+      </if>
+      <if test="xq != null" >
+        XQ = #{xq,jdbcType=VARCHAR},
+      </if>
+      <if test="xkid != null" >
+        XKID = #{xkid,jdbcType=VARCHAR},
+      </if>
+      <if test="pyyf != null" >
+        PYYF = #{pyyf,jdbcType=VARCHAR},
+      </if>
+      <if test="bxid1 != null" >
+        BXID1 = #{bxid1,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel1 != null" >
+        BXLEVEL1 = #{bxlevel1,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid2 != null" >
+        BXID2 = #{bxid2,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel2 != null" >
+        BXLEVEL2 = #{bxlevel2,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid3 != null" >
+        BXID3 = #{bxid3,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel3 != null" >
+        BXLEVEL3 = #{bxlevel3,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid4 != null" >
+        BXID4 = #{bxid4,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel4 != null" >
+        BXLEVEL4 = #{bxlevel4,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid5 != null" >
+        BXID5 = #{bxid5,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel5 != null" >
+        BXLEVEL5 = #{bxlevel5,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid6 != null" >
+        BXID6 = #{bxid6,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel6 != null" >
+        BXLEVEL6 = #{bxlevel6,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid7 != null" >
+        BXID7 = #{bxid7,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel7 != null" >
+        BXLEVEL7 = #{bxlevel7,jdbcType=DECIMAL},
+      </if>
+      <if test="bxid8 != null" >
+        BXID8 = #{bxid8,jdbcType=VARCHAR},
+      </if>
+      <if test="bxlevel8 != null" >
+        BXLEVEL8 = #{bxlevel8,jdbcType=DECIMAL},
+      </if>
+      <if test="jspy != null" >
+        JSPY = #{jspy,jdbcType=VARCHAR},
+      </if>
+      <if test="jsxm != null" >
+        JSXM = #{jsxm,jdbcType=VARCHAR},
+      </if>
+      <if test="tbly != null" >
+        TBLY = #{tbly,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorname != null" >
+        CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null" >
+        CREATORID = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadteacherid != null" >
+        UPLOADTEACHERID = #{uploadteacherid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.coder520.test.entity.TbName" >
+    update XXZX_XS_RCBX
+    set XJH = #{xjh,jdbcType=VARCHAR},
+      XM = #{xm,jdbcType=VARCHAR},
+      XN = #{xn,jdbcType=VARCHAR},
+      XQ = #{xq,jdbcType=VARCHAR},
+      XKID = #{xkid,jdbcType=VARCHAR},
+      PYYF = #{pyyf,jdbcType=VARCHAR},
+      BXID1 = #{bxid1,jdbcType=VARCHAR},
+      BXLEVEL1 = #{bxlevel1,jdbcType=DECIMAL},
+      BXID2 = #{bxid2,jdbcType=VARCHAR},
+      BXLEVEL2 = #{bxlevel2,jdbcType=DECIMAL},
+      BXID3 = #{bxid3,jdbcType=VARCHAR},
+      BXLEVEL3 = #{bxlevel3,jdbcType=DECIMAL},
+      BXID4 = #{bxid4,jdbcType=VARCHAR},
+      BXLEVEL4 = #{bxlevel4,jdbcType=DECIMAL},
+      BXID5 = #{bxid5,jdbcType=VARCHAR},
+      BXLEVEL5 = #{bxlevel5,jdbcType=DECIMAL},
+      BXID6 = #{bxid6,jdbcType=VARCHAR},
+      BXLEVEL6 = #{bxlevel6,jdbcType=DECIMAL},
+      BXID7 = #{bxid7,jdbcType=VARCHAR},
+      BXLEVEL7 = #{bxlevel7,jdbcType=DECIMAL},
+      BXID8 = #{bxid8,jdbcType=VARCHAR},
+      BXLEVEL8 = #{bxlevel8,jdbcType=DECIMAL},
+      JSPY = #{jspy,jdbcType=VARCHAR},
+      JSXM = #{jsxm,jdbcType=VARCHAR},
+      TBLY = #{tbly,jdbcType=DECIMAL},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      CREATORNAME = #{creatorname,jdbcType=VARCHAR},
+      CREATORID = #{creatorid,jdbcType=VARCHAR},
+      UPLOADTEACHERID = #{uploadteacherid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
